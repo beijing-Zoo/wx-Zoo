@@ -1,0 +1,4 @@
+<!--pages/animal-detail/detail-page.wxml-->
+<text>动物详情功能测试</text>
+<map longitude="25.404930" latitude="0.915219" scale="10" markers="{{mapMark}}">
+</map>

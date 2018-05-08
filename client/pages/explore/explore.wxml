@@ -1,0 +1,11 @@
+<view class='explore'>
+  <view>
+    <input class='search' placeholder='搜索'></input>
+  </view>
+  <view>
+    <text class='explore-title'>探索物种</text>
+		<view class='explore-types' wx:for="{{exploreTypes}}">
+			<text>{{item}}</text>
+		</view>
+  </view>
+</view>
