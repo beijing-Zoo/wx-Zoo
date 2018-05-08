@@ -5,13 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-		mapMark:[{
-			id: 0,
-			latitude: 39.915219,
-			longitude: 116.40493,
-			width: 50,
-			height: 50
-		}]
   },
 
   /**
