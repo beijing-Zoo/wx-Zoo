@@ -5,7 +5,9 @@
     "pages/explore/explore",
     "pages/user/user",
     "pages/settings/settings",
-    "pages/animal-detail/detail-page"
+    "pages/animal-detail/detail-page",
+    "pages/search/search",
+    "pages/animals-list/animals-list"
   ],
   "window": {
     "backgroundColor": "#ddd",

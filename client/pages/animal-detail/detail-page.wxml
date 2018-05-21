@@ -1,4 +1,6 @@
 <!--pages/animal-detail/detail-page.wxml-->
-<text>动物详情功能测试</text>
-<map longitude="25.404930" latitude="0.915219" scale="10" markers="{{mapMark}}">
-</map>
+<view>
+  <view>转盘选择器{{afterRotate}}</view>
+  <view class='turntable' id='turntable' bindtouchstart='touchstart' bindtouchmove='touchmove' 
+	style='transform: rotate({{turntableRotate}}deg);'></view>
+</view>

@@ -1,11 +1,13 @@
 <view class='explore'>
-  <view>
-    <input class='search' placeholder='搜索'></input>
-  </view>
-  <view>
-    <text class='explore-title'>探索物种</text>
-		<view class='explore-types' wx:for="{{exploreTypes}}">
-			<text>{{item}}</text>
-		</view>
+  <map class='explore-map' wx:if="{{type == 'map'}}" longitude="{{longitude}}" latitude="{{latitude}}" scale='11' controls="{{controls}}" bindcontroltap="controlTap" markers='{{markers}}'>
+		<cover-view >{{latitude}}</cover-view>
+		<cover-view >{{longitude}}</cover-view>
+  </map>
+  <view wx:if="{{type != 'map'}}">
+    <view class='explore-list'>
+      <view class='explore-types' wx:for="{{exploreTypes}}">
+        <text>{{item}}</text>
+      </view>
+    </view>
   </view>
 </view>

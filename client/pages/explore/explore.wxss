@@ -1,10 +1,12 @@
 page {
+  width: 100%;
+  height: 100%;
   background-color: rgb(221, 221, 221);
 }
 
 .explore {
-	margin: 0 40rpx;
-	padding-bottom: 20rpx;
+  width: 100%;
+  height: 100%;
 }
 
 .explore-title {
@@ -23,20 +25,66 @@ page {
   text-align: center;
 }
 
-.explore-types {
-	margin-top: 7px;
-	width: 670rpx;
+.explore-list {
+  width: 670rpx;
+  margin: 20px auto 0;
 }
 
+.explore-types:nth-child(1) {
+  background: rgb(255, 72, 88);
+}
+
+.explore-types:nth-child(2) {
+  background: rgb(255, 211, 21);
+}
+
+.explore-types:nth-child(3) {
+  background: rgb(7, 227, 171);
+}
+
+.explore-typest:nth-child(4) {
+  background: rgb(0, 196, 255);
+}
+
+.explore-types:nth-child(5) {
+  background: rgb(170, 115, 255);
+}
+
+.explore-types {
+  margin: 10px auto 0;
+  width: 100%;
+  border-radius: 8rpx;
+  background: #fff;
+}
 
 .explore-types text {
-	display: inline-block;
-	box-sizing: border-box;
-	width: 100%;
-	height: 200rpx;
-	padding-left: 49rpx;
-	background-color: #fff;
-	border-radius: 8rpx;
-	font-size: 56rpx;
-	line-height: 200rpx;
+  height: 200rpx;
+  padding-left: 49rpx;
+  color: #fff;
+  font-size: 56rpx;
+  line-height: 200rpx;
+}
+
+.explore-map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.user {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 200rpx;
+  background: rgba(245, 166, 35, 0.3);
 }
