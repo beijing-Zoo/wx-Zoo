@@ -1,13 +1,38 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/addCgi/addCgi"
+  "pages": [
+    "pages/recommend/recommend",
+    "pages/addCgi/addCgi",
+    "pages/explore/explore",
+    "pages/user/user",
+    "pages/settings/settings",
+    "pages/animal-detail/detail-page",
+    "pages/search/search",
+    "pages/animals-list/animals-list"
   ],
-  "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#ddd",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "口袋野生动物园",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": ""
+  },
+  "tabBar": {
+    "color": "#616a7f",
+    "selectedColor": "#f47d31",
+    "list": [
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "探索"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
   }
 }

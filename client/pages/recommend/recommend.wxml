@@ -1,0 +1,16 @@
+<view class='recommend'>
+  <view>
+    <input class='search' placeholder='搜索'></input>
+  </view>
+  <view>
+    <text class='daily-title'>每日推荐</text>
+    <view class='daily-card' bindtap='toDetail'>
+			<image class='daily-card-image' src='./head-peiqi400.jpg'></image>
+			<view class='daily-describe'>
+				<image class='card-name'></image>
+				<text class='rare-degree'>珍稀程度： </text>
+				<text>目前数量： 20000头</text>
+			</view>
+		</view>
+  </view>
+</view>

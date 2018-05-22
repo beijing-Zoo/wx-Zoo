@@ -1,0 +1,15 @@
+<view class='user'>
+  <view class='user-info'>
+    <view class='user-image-content'>
+      <image class='user-image'>头像</image>
+      <text class='user-level'>47</text>
+    </view>
+    <text class='user-name'>二哈哈</text>
+    <text class='custom-settings' bindtap="goSettings">设置</text>
+  </view>
+  <view class='my-content'>
+    <view class='content-filter'>最近浏览</view>
+    <view class='content-filter'>我的徽章</view>
+		<view class='content-container'></view>
+  </view>
+</view>

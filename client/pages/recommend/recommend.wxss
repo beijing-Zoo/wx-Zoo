@@ -1,0 +1,58 @@
+page {
+  background-color: rgb(221, 221, 221);
+}
+
+.recommend {
+  margin: 0 40rpx;
+	padding-bottom: 20rpx;
+}
+
+.search {
+  width: 670rpx;
+  height: 64rpx;
+  margin-top: 24rpx;
+  border: 1rpx solid rgb(164, 169, 179);
+  border-radius: 32rpx;
+  text-align: center;
+}
+
+.daily-title {
+  display: inline-block;
+  font-size: 48rpx;
+  margin-top: 20rpx;
+  color: #9b99a9;
+}
+
+.daily-card {
+  position: relative;
+  width: 670rpx;
+  height: 894rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.daily-card-image {
+  width: 100%;
+  height: 600rpx;
+}
+
+.daily-describe {
+  width: 100%;
+  box-sizing: border-box;
+  height: 294rpx;
+  padding: 40rpx 50rpx;
+  color: #9b99a9;
+  font-size: 24rpx;
+}
+
+.card-name {
+  height: 80rpx;
+  max-width: 100%;
+}
+
+.rare-degree {
+  display: inline-block;
+  width: 100%;
+}
