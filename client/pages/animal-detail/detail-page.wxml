@@ -1,6 +1,7 @@
 <!--pages/animal-detail/detail-page.wxml-->
 <view>
   <view>转盘选择器{{afterRotate}}</view>
+	<view>{{animal}}</view>
   <view class='turntable' id='turntable' bindtouchstart='touchstart' bindtouchmove='touchmove' 
 	style='transform: rotate({{turntableRotate}}deg);'></view>
 </view>

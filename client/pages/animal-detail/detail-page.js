@@ -10,6 +10,7 @@ Page({
 		beforeRotate: 0,
 		afterRotate: 0,
 		rotateTimes: 0,
+		animal:"熊猫"
 	},
 
 	touchstart: function (evt) {
@@ -65,20 +66,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
 	onLoad: function (options) {
+		console.log(1);
+		let animal =  "";
+		switch (Number(options.key)) {
+			case 1: {
+				animal ="大象";
+				break;
+			}
+			case 2: {
+				animal = "长颈鹿";
+				break;
+			}
+			case 3: {
+				animal = "猿猴";
+				break;
+			}
+		}
+		console.log(animal);
+		if (animal) {
+			this.setData({
+				animal : animal
+			})
+		} 
 	},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
 	onReady: function () {
-
+		console.log(2)
 	},
 
   /**
    * 生命周期函数--监听页面显示
    */
 	onShow: function () {
-
+	console.log(3)
 	},
 
   /**

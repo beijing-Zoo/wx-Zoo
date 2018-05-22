@@ -88,3 +88,76 @@ page {
   border-radius: 200rpx;
   background: rgba(245, 166, 35, 0.3);
 }
+
+.go-content {
+  position: absolute;
+  bottom: 96rpx;
+  left: 3%;
+  width: 94%;
+  height: 220rpx;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.go-animal-icon {
+  display: inline-block;
+  width: 146rpx;
+  height: 146rpx;
+  margin: 30rpx 48rpx 0;
+  vertical-align: top;
+}
+
+.animal-detailed {
+  position: relative;
+  display: inline-block;
+  width: 416rpx;
+  margin: 24rpx 32rpx 24rpx 16rpx;
+}
+
+.animal-name {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-bottom: 16rpx;
+  color: rgb(255, 128, 34);
+}
+
+.animal-range {
+  margin-bottom: 36rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: rgb(155, 153, 169);
+}
+
+.animal-go {
+  position: relative;
+  display: inline-block;
+  height: 46rpx;
+	padding-right: 72rpx; 
+  font-size: 28rpx;
+  line-height: 46rpx;
+  margin-bottom: 16rpx;
+  margin-left: 160rpx;
+  color: rgb(255, 128, 34);
+}
+
+.animal-go-icon {
+  position: absolute;
+  width: 60rpx;
+  height: 46rpx;
+  top: 0;
+  right: 0;
+}
+
+.animal-go-touch-content {
+  position: absolute;
+  bottom: -20rpx;
+	left: 50%;
+  width: 134rpx;
+  height: 224rpx;
+	transform: translate(-50%, 0);
+}
+
+.animal-go-touch {
+  width: 134rpx;
+  height: 224rpx;
+}
