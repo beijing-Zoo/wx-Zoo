@@ -23,8 +23,7 @@ Page({
 		animals: [],
 		goIcon: "",
 		goName: '',
-		goKey:  null,
-		mapType: 1
+		goKey:  null
 	},
 
 	/**
@@ -57,16 +56,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
 	onLoad: function (options) {
+		/**
+		 * 获取手机硬件格式，定位控件位置
+		 */
+		wx.getSystemInfo({
+			success: (res) => {
+				this.setData({
+					controls: [
+						{
+							id: 1,
+							iconPath: './explore-map-icon/search-icon.png',
+							position: {
+								left: res.windowWidth / 5,
+								top: res.windowHeight * 3 / 4,
+								bottom: 96,
+								width: 74,
+								height: 74
+							},
+							clickable: true
+						},
+						{
+							id: 2,
+							iconPath: './explore-map-icon/search-icon.png',
+							position: {
+								left: res.windowWidth * 3 / 5,
+								top: res.windowHeight * 3 / 4,
+								width: 74,
+								height: 74
+							},
+							clickable: true
+						}
+					],
+				})
+			}
+		});
 	},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
 	onReady: function () {
-		console.log(2);
+	},
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+	onShow: function () {
 		/**
-	 * 获取权限
-	 */
+		 * 获取权限
+		 */
 		wx.getSetting({
 			success: (res) => {
 				wx.showModal({
@@ -96,17 +134,17 @@ Page({
 				var user = "markers[" + 0 + "]";
 				this.setData({
 					type: "map",
-					latitude: 39.941857,
-					longitude: 116.331933,
-					// latitude: res.latitude,
-					// longitude: res.longitude,
+					// latitude: 39.941857,
+					// longitude: 116.331933,
+					latitude: res.latitude,
+					longitude: res.longitude,
 					[user]: {
 						iconPath: "./explore-map-icon/profile-icon.png",
 						id: 0,
-						latitude: 39.941857,
-						longitude: 116.331933,
-						// latitude: res.latitude,
-						// longitude: res.longitude,
+						// latitude: 39.941857,
+						// longitude: 116.331933,
+						latitude: res.latitude,
+						longitude: res.longitude,
 						width: 60,
 						height: 60
 					}
@@ -147,20 +185,16 @@ Page({
 								}
 							]
 
-							let markers = this.data.markers.slice(0, 1);
+							let markers = this.data.markers;
 							animalData.forEach((zoo) => {
 								zoo.animals.forEach((animal, key) => {
-									if (Math.abs(this.data.latitude - animal.latitude) < 0.0003 &&
+									if (Math.abs(this.data.latitude - animal.latitude) < 0.0003 && 
 										Math.abs(this.data.longitude - animal.longitude) < 0.0003) {
 										this.setData({
 											goIcon: animal.iconPath,
 											goName: animal.name,
-											goKey: animal.key,
-											mapType:2
+											goKey: animal.key
 										})
-									}
-									else {
-										
 									}
 									markers = markers.concat({
 										iconPath: animal.iconPath,
@@ -184,13 +218,6 @@ Page({
 				console.log('this fail')
 			},
 		});
-	},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-	onShow: function () {
-		console.log(3);
 	},
 
   /**
