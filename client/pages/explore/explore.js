@@ -37,6 +37,7 @@ Page({
 		}
 		else {
 			console.log(123);
+			console.log(234);
 		}
 	},
 
