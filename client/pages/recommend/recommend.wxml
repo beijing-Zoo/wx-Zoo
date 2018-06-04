@@ -1,11 +1,14 @@
+<import src="../../template/search.wxml"/>
 <view class='recommend'>
-  <view>
+  <!-- <view>
     <input class='search' placeholder='搜索'></input>
-  </view>
+  </view> -->
+	<template is="searchInput"/>
   <view>
     <text class='daily-title'>每日推荐</text>
     <view class='daily-card' bindtap='toDetail'>
-			<image class='daily-card-image' src='./head-peiqi400.jpg'></image>
+			<!-- <image class='daily-card-image' src='./head-peiqi400.jpg'></image> -->
+			<image class='daily-card-image' src=''></image>
 			<view class='daily-describe'>
 				<image class='card-name'></image>
 				<text class='rare-degree'>珍稀程度： </text>

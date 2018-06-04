@@ -10,7 +10,7 @@ Page({
 
 	toDetail: function() {
 		wx.navigateTo({
-			url: '/pages/animal-detail/detail-page',
+			url: '/pages/animal-detail/detail-page?key=1',
 		})
 	},
 

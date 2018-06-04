@@ -7,7 +7,8 @@
     "pages/settings/settings",
     "pages/animal-detail/detail-page",
     "pages/search/search",
-    "pages/animals-list/animals-list"
+    "pages/animals-list/animals-list",
+    "template/search"
   ],
   "window": {
     "backgroundColor": "#ddd",

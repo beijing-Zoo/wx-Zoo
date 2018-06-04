@@ -10,10 +10,20 @@ Page({
 		beforeRotate: 0,
 		afterRotate: 0,
 		rotateTimes: 0,
-		animal:"熊猫"
+		animal: "熊猫",
+		activePage: 0,
+		detailImage: '',
+		detailVideo: '',
+		detailBtns: [],
+		videoDisplay: true,
+		popDisplay: true
 	},
 
+	/**
+	 * 圆盘选择器
+	 */
 	touchstart: function (evt) {
+		console.log('start');
 		var turntableX = 187.5;
 		var turntableY = 724.5;
 		var rotate = - Math.floor(180 * (Math.atan2(turntableX - (evt.touches[0].pageX), turntableY - evt.touches[0].pageY)) / Math.PI)
@@ -24,6 +34,7 @@ Page({
 	},
 
 	touchmove: function (evt) {
+		console.log('move');
 		var turntableX = 187.5;
 		var turntableY = 724.5;
 		var rotate = - Math.floor(180 * (Math.atan2(turntableX - (evt.touches[0].pageX),
@@ -32,33 +43,68 @@ Page({
 		this.setData({
 			afterRotate: changeRotate
 		})
-		if (changeRotate > 15 && this.data.rotateTimes < 1) {
+		if (changeRotate > 12 && this.data.rotateTimes < 1) {
+			console.log(this.data.activePage + 1);
 			this.setData({
 				turntableRotate: this.data.turntableRotate -= 72,
-				rotateTimes: this.data.rotateTimes + 1
+				rotateTimes: this.data.rotateTimes + 1,
+				activePage: this.data.activePage + 1 > 4 ? 0 : this.data.activePage + 1
 			})
 		}
-		else if (changeRotate < -15 &&this.data.rotateTimes > -1) {
+		else if (changeRotate < -12 && this.data.rotateTimes > -1) {
 			this.setData({
 				turntableRotate: this.data.turntableRotate += 72,
-				rotateTimes: this.data.rotateTimes - 1
+				rotateTimes: this.data.rotateTimes - 1,
+				activePage: this.data.activePage - 1 < 0 ? 4 : this.data.activePage - 1
 			})
 		}
 		else if (changeRotate == 0 && this.data.rotateTimes == -1) {
 			this.setData({
 				turntableRotate: this.data.turntableRotate -= 72,
-				rotateTimes: this.data.rotateTimes + 1
+				rotateTimes: this.data.rotateTimes + 1,
+				activePage: this.data.activePage + 1 > 4 ? 0 : this.data.activePage + 1
 			})
 		}
 		else if (changeRotate == 0 && this.data.rotateTimes == 1) {
 			this.setData({
 				turntableRotate: this.data.turntableRotate += 72,
-				rotateTimes: this.data.rotateTimes - 1
+				rotateTimes: this.data.rotateTimes - 1,
+				activePage: this.data.activePage - 1 < 0 ? 4 : this.data.activePage - 1
 			})
 		}
 	},
 
-	touchend: function (evt) {
+	bindFeaturesVideoPlay: function () {
+		console.log('play');
+		this.videoContext.requestFullScreen({
+			direction: 90
+		});
+	},
+
+	videoClose: function () {
+		this.setData({
+			videoDisplay: true
+		});
+		this.videoContext.exitFullScreen();
+		this.videoContext.pause();
+	},
+
+	videoBtn: function (evt) {
+		console.log('play');
+		this.setData({
+			videoDisplay: false
+		}, () => console.log(this.data.videoDisplay))
+		this.videoContext.seek(0);
+		this.videoContext.play();
+	},
+
+	popTap: function (event) {
+		console.log(event.target.dataset.item.text);
+		this.setData({ popDisplay: false, popText: event.target.dataset.item.text})
+	},
+
+	closePop: function (event) {
+		this.setData({ popDisplay: true })
 	},
 
 	query: wx.createSelectorQuery(),
@@ -66,14 +112,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
 	onLoad: function (options) {
-		console.log(1);
-		let animal =  "";
+		let animal = "";
 		switch (Number(options.key)) {
 			case 1: {
-				animal ="大象";
+				animal = "大象";
 				break;
 			}
-			case 2: {
+			case 6: {
 				animal = "长颈鹿";
 				break;
 			}
@@ -82,26 +127,41 @@ Page({
 				break;
 			}
 		}
-		console.log(animal);
 		if (animal) {
+
+			//得到animal的数据
+			let animalData = {
+				detail: {
+					image: './detail-elephant.png',
+					video: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
+					// video: 'https://static.kelexuexi.com/videos/02%E5%B7%A6%E8%BE%B9%E6%A0%8F%E7%9A%84%E4%BD%BF%E7%94%A8.webm',
+					buttons: [{ x: 446, y: 188, text: '大象的耳朵可以散发热量，保持身体凉爽，但有时非洲大陆的温度实在太高了，所以非洲象需要非常大的耳朵散热。' }]
+				}
+			}
+
 			this.setData({
-				animal : animal
+				animal: animal,
+				detailImage: animalData.detail.image,
+				detailVideo: animalData.detail.video,
+				detailBtns: animalData.detail.buttons
 			})
-		} 
+		}
 	},
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
 	onReady: function () {
-		console.log(2)
+		this.videoContext = wx.createVideoContext('featuresVideo')
 	},
 
   /**
    * 生命周期函数--监听页面显示
    */
 	onShow: function () {
-	console.log(3)
+		console.log(3)
 	},
 
   /**

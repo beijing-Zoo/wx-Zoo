@@ -1,0 +1,9 @@
+/* template/search.wxss */
+.search {
+  width: 670rpx;
+  height: 64rpx;
+  margin-top: 24rpx;
+  border: 1rpx solid rgb(164, 169, 179);
+  border-radius: 32rpx;
+  text-align: center;
+}

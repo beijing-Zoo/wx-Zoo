@@ -1,8 +1,11 @@
+<import src="../../template/search.wxml" />
 <view class='explore'>
-  <map class='explore-map' wx:if="{{type == 'map'}}" longitude="{{longitude}}" latitude="{{latitude}}" scale='14' controls="{{controls}}" bindcontroltap="controlTap" markers='{{markers}}'>
+<!-- 授权地址 -->
+  <map class='explore-map' wx:if="{{type == 'map'}}" longitude="{{longitude}}" latitude="{{latitude}}" scale='{{mapScale}}' controls="{{controls}}" bindcontroltap="controlTap" markers='{{markers}}' bindmarkertap="markersTap">
     <cover-view>{{latitude}}</cover-view>
     <cover-view>{{longitude}}</cover-view>
-    <cover-view class='go-content' wx:if="{{goKey}}">
+    <!-- 我要去看看弹窗 -->
+    <cover-view class='go-content' wx:if="{{mapType==2}}">
       <cover-image class="go-animal-icon" src='{{goIcon}}'>
       </cover-image>
       <cover-view class="animal-detailed" bindtap='goTap'>
@@ -15,11 +18,14 @@
       </cover-view>
       <cover-view class="close-btn">close</cover-view>
     </cover-view>
-    <cover-view wx:if="{{goKey}}" class="animal-go-touch-content">
+    <!-- 点击手势图片 -->
+    <cover-view wx:if="{{mapType==2}}" class="animal-go-touch-content">
       <cover-image class="animal-go-touch" src="./explore-map-icon/touch-icon.png"></cover-image>
     </cover-view>
   </map>
-  <view wx:if="{{type != 'map'}}">
+	<!-- 未授权地址信息 -->
+  <view class='explore-nomap' wx:if="{{type != 'map'}}">
+    <template is="searchInput" />
     <view class='explore-list'>
       <view class='explore-types' wx:for="{{exploreTypes}}">
         <text>{{item}}</text>

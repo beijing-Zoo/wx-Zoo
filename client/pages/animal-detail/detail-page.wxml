@@ -1,7 +1,33 @@
 <!--pages/animal-detail/detail-page.wxml-->
-<view>
-  <view>转盘选择器{{afterRotate}}</view>
-	<view>{{animal}}</view>
-  <view class='turntable' id='turntable' bindtouchstart='touchstart' bindtouchmove='touchmove' 
-	style='transform: rotate({{turntableRotate}}deg);'></view>
+<view class='detail-view'>
+  <!-- <view class='logs'>转盘选择器{{afterRotate}}</view>
+  <view class='logs'>{{animal}}</view>
+  <view class='logs'>{{activePage}}</view>  -->
+  <view class='detail-pages'>
+    <view class="{{activePage == 0 ? 'page active':'page'}}">
+      <image class="detail-image" src="{{detailImage}}" mode='widthFix'></image>
+      <image class="video-btn" src='./video-button.png' bindtap='videoBtn'></image>
+      <view class="video-content" hidden="{{videoDisplay}}">
+        <video id="featuresVideo" src="{{detailVideo}}" bindplay="bindFeaturesVideoPlay" show-fullscreen-btn="{{false}}">
+          <cover-view class='video-cover'>
+            <cover-image class='video-close' src='/resource/video-close.png' bindtap='videoClose'></cover-image>
+          </cover-view>
+        </video>
+      </view>
+      <view class='buttons' wx:for="{{detailBtns}}">
+        <image class='button' style='top:{{item.y}}rpx; left:{{item.x}}rpx' data-text="{{item.text}}" src='/resource/question-button.png' bindtap='popTap'
+				 data-item="{{item}}"></image>
+      </view>
+				<view class='question-pop' hidden="{{popDisplay}}">
+					<text class='pop-text'>{{popText}}</text>
+					<image class='pop-close' src='/resource/video-close.png' bindtap='closePop'></image>
+					<view class='pop-know' bindtap='closePop'>知道了</view>
+				</view>
+    </view>
+    <view class="{{activePage == 1 ? 'page active':'page'}}">食物</view>
+    <view class="{{activePage == 2 ? 'page active':'page'}}">分布</view>
+    <view class="{{activePage == 3 ? 'page active':'page'}}">眼镜</view>
+    <view class="{{activePage == 4 ? 'page active':'page'}}">WTF</view>
+  </view>
+  <image src='./turntable.png' class='turntable' id='turntable' bindtouchstart='touchstart' bindtouchmove='touchmove' style='transform: rotate({{turntableRotate}}deg);'></image>
 </view>
