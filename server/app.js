@@ -23,6 +23,29 @@ const recommend = async function(ctx,next) {
 	ctx.response.body = await db.findAll(1);//数据库操作
 };
 
+const onLogin = async function(ctx,next){
+  let code = ctx.request.query.code
+
+  request.get({
+    uri: 'https://api.weixin.qq.com/sns/jscode2session',
+    json: true,
+    qs: {
+      grant_type: 'authorization_code',
+      appid: 'wxa622840fc3608d0c',
+      secret: '359e67af1d89d464ee87a1acf28587d8',
+      js_code: code
+    }
+  }, (err, response, data) => {
+    if (response.statusCode === 200) {
+      console.log("[openid]", data.openid)
+      console.log("[session_key]", data.session_key)
+      res.json({ sessionid: sessionid })
+    } else {
+      console.log("[error]", err)
+      res.json(err)
+    }
+  })
+}
 
 // 使用响应处理中间件
 //app.use(response)
@@ -40,6 +63,7 @@ app.use(bodyParser())
 // app.listen(config.port, () => debug(`listening on port ${config.port}`))
 app.use(route.get('/main', main));
 app.use(route.get('/recommend',recommend));
+app.use(route.get('/onLogin',onLogin));
 app.listen(8080, function () {
 
   console.log("监听8080端口")
