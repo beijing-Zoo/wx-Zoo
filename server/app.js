@@ -39,7 +39,8 @@ const onLogin = async function(ctx,next){
     if (response.statusCode === 200) {
       console.log("[openid]", data.openid)
       console.log("[session_key]", data.session_key)
-      res.json({ sessionid: sessionid })
+      //res.json({ sessionid: sessionid })
+      res.json({openid:data.openid})
     } else {
       console.log("[error]", err)
       res.json(err)
