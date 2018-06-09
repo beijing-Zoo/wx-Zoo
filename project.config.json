@@ -8,6 +8,7 @@
 	},
 	"appid": "wxa622840fc3608d0c",
 	"projectname": "AniKnow2.0",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,
