@@ -1,0 +1,14 @@
+/* component/search-input.wxss */
+.search {
+	position: relative;
+  width: 670rpx;
+  height: 64rpx;
+  border: 1rpx solid rgb(164, 169, 179);
+  margin: 54rpx auto 40rpx;
+  border-radius: 32rpx;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 10rpx;
+}

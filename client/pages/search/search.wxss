@@ -1,1 +1,46 @@
 /* pages/search/search.wxss */
+
+.search-container {
+  height: 100%;
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.search {
+  width: 670rpx;
+  height: 64rpx;
+  margin-top: 24rpx;
+  border: 1rpx solid rgb(164, 169, 179);
+  border-radius: 32rpx;
+  text-align: center;
+}
+
+.no-return {
+  font-size: 28rpx;
+  color: rgb(102, 110, 127);
+}
+
+.maybe {
+  display: block;
+  font-size: 28rpx;
+  color: #666e7f;
+  line-height: 40rpx;
+}
+
+.maybe-container  {
+	text-align: center;
+}
+
+.maybe-item {
+  display: inline-block;
+  width: 184rpx;
+  height: 56rpx;
+	margin: 32rpx 0  0  24rpx;
+  background: rgba(255, 196, 106, 0.3);
+  border-radius: 28rpx;
+  color: #ff7a4b;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 28rpx;
+}

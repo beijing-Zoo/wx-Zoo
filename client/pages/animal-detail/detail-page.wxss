@@ -117,7 +117,7 @@ page {
 
 .question-pop {
   position: absolute;
-	display: inline-block;
+  display: inline-block;
   top: 50%;
   left: 50%;
   width: 558rpx;
@@ -130,26 +130,26 @@ page {
 .pop-text {
   display: block;
   width: 490rpx;
-	max-height: 420rpx;
+  max-height: 420rpx;
   margin: 80rpx auto 180rpx;
   font-size: 40rpx;
   line-height: 60rpx;
-	overflow-y: scroll;
+  overflow-y: scroll;
   color: rgb(255, 122, 75);
 }
 
 .pop-know {
-	position: fixed;
-	bottom: 48rpx;
-	left: 90rpx;
-	width: 398rpx;
-	height: 96rpx;
-	line-height: 96rpx;
-	border-radius: 48rpx;
-	background: rgb(90, 201, 255);
-	font-size: 36rpx;
-	text-align: center;
-	color: #fff;
+  position: fixed;
+  bottom: 48rpx;
+  left: 90rpx;
+  width: 398rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 48rpx;
+  background: rgb(90, 201, 255);
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
 }
 
 .pop-close {
@@ -158,4 +158,22 @@ page {
   right: -28rpx;
   width: 100rpx;
   height: 100rpx;
+}
+
+.food-container {
+  width: 604rpx;
+  margin: 72rpx 72rpx 0;
+}
+
+.question  {
+	width: 604rpx;
+	height: 224rpx;
+	margin-bottom: 36rpx;
+	border-radius: 10rpx;
+	background: url('./food-image/bg.png') 604rpx 224rpx;
+}
+
+.answer  {
+	display: inline-block;
+	background: #fff6d1;
 }

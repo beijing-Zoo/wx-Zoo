@@ -16,14 +16,22 @@ Page({
 		detailVideo: '',
 		detailBtns: [],
 		videoDisplay: true,
-		popDisplay: true
+		popDisplay: true,
+		foods: [
+			{
+				answer: 0,
+				choice: [
+					{ src: '', text: '鸟' },
+					{ src: '', text: '树枝' }
+				]
+			}
+		]
 	},
 
 	/**
 	 * 圆盘选择器
 	 */
 	touchstart: function (evt) {
-		console.log('start');
 		var turntableX = 187.5;
 		var turntableY = 724.5;
 		var rotate = - Math.floor(180 * (Math.atan2(turntableX - (evt.touches[0].pageX), turntableY - evt.touches[0].pageY)) / Math.PI)
@@ -34,7 +42,6 @@ Page({
 	},
 
 	touchmove: function (evt) {
-		console.log('move');
 		var turntableX = 187.5;
 		var turntableY = 724.5;
 		var rotate = - Math.floor(180 * (Math.atan2(turntableX - (evt.touches[0].pageX),
@@ -75,7 +82,6 @@ Page({
 	},
 
 	bindFeaturesVideoPlay: function () {
-		console.log('play');
 		this.videoContext.requestFullScreen({
 			direction: 90
 		});
@@ -90,7 +96,6 @@ Page({
 	},
 
 	videoBtn: function (evt) {
-		console.log('play');
 		this.setData({
 			videoDisplay: false
 		}, () => console.log(this.data.videoDisplay))
@@ -100,7 +105,7 @@ Page({
 
 	popTap: function (event) {
 		console.log(event.target.dataset.item.text);
-		this.setData({ popDisplay: false, popText: event.target.dataset.item.text})
+		this.setData({ popDisplay: false, popText: event.target.dataset.item.text })
 	},
 
 	closePop: function (event) {

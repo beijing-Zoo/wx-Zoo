@@ -1,4 +1,5 @@
 // pages/recommend/recommend.js
+
 Page({
 
   /**
@@ -18,7 +19,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+		wx.login({
+			success: function() {
+				// 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+				// wx.getUserInfo({
+				// 	success: function (res) {
+						
+				// 	}
+				// })
+			}
+		})
   },
 
   /**

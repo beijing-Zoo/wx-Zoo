@@ -7,15 +7,6 @@ page {
 	padding-bottom: 20rpx;
 }
 
-.search {
-  width: 670rpx;
-  height: 64rpx;
-  margin-top: 24rpx;
-  border: 1rpx solid rgb(164, 169, 179);
-  border-radius: 32rpx;
-  text-align: center;
-}
-
 .daily-title {
   display: inline-block;
   font-size: 48rpx;
@@ -36,6 +27,7 @@ page {
 .daily-card-image {
   width: 100%;
   height: 600rpx;
+	background: #fff;
 }
 
 .daily-describe {

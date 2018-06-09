@@ -1,6 +1,6 @@
 <!--template/search.wxml-->
 <template name="searchInput">
    <view>
-    <input class='search' placeholder='搜索'></input>
+    <input class='search' placeholder='搜索'  bindinput='searchInput'></input>
   </view>
 </template>

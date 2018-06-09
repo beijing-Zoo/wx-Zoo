@@ -1,9 +1,8 @@
-<import src="../../template/search.wxml" />
 <view class='explore'>
 <!-- 授权地址 -->
   <map class='explore-map' wx:if="{{type == 'map'}}" longitude="{{longitude}}" latitude="{{latitude}}" scale='{{mapScale}}' controls="{{controls}}" bindcontroltap="controlTap" markers='{{markers}}' bindmarkertap="markersTap">
-    <cover-view>{{latitude}}</cover-view>
-    <cover-view>{{longitude}}</cover-view>
+    <!-- <cover-view>{{latitude}}</cover-view>
+    <cover-view>{{longitude}}</cover-view> -->
     <!-- 我要去看看弹窗 -->
     <cover-view class='go-content' wx:if="{{mapType==2}}">
       <cover-image class="go-animal-icon" src='{{goIcon}}'>
@@ -25,7 +24,7 @@
   </map>
 	<!-- 未授权地址信息 -->
   <view class='explore-nomap' wx:if="{{type != 'map'}}">
-    <template is="searchInput" />
+    <search-input></search-input>
     <view class='explore-list'>
       <view class='explore-types' wx:for="{{exploreTypes}}">
         <text>{{item}}</text>

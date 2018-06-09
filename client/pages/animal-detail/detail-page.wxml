@@ -24,7 +24,21 @@
 					<view class='pop-know' bindtap='closePop'>知道了</view>
 				</view>
     </view>
-    <view class="{{activePage == 1 ? 'page active':'page'}}">食物</view>
+    <view class="{{activePage == 1 ? 'page active':'page'}}">
+			<view class='food-container'>
+				<view class='question' wx:for='{{foods}}'>
+					<view class='answer'>
+						<image src=''></image>
+					</view>
+					<view class='choice-list'>
+						<view class='choice' wx:for='{{item.choice}}'>
+							<image src='{{item.src}}'></image>
+							<text>{{item.text}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
     <view class="{{activePage == 2 ? 'page active':'page'}}">分布</view>
     <view class="{{activePage == 3 ? 'page active':'page'}}">眼镜</view>
     <view class="{{activePage == 4 ? 'page active':'page'}}">WTF</view>

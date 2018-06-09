@@ -32,6 +32,7 @@ Page({
 	 * map control  tap event
 	 */
 	controlTap: function (res) {
+		console.log(res.controlId);
 		if (res.controlId === 1) {
 			wx.navigateTo({
 				url: '/pages/search/search',

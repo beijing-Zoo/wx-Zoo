@@ -1,2 +1,11 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class='search-container'>
+  <search-input></search-input>
+  <view class='returns'>
+    <block wx:if='{{returns.length == 0}}' class='no-return'>
+      <view class='maybe'>你可能感兴趣:</view>
+      <view class='maybe-container'>
+        <view class='maybe-item' wx:for='{{recommends}}'>{{item}}</view>
+      </view>
+    </block>
+  </view>
+</view>
