@@ -27,21 +27,23 @@
     <view class="{{activePage == 1 ? 'page active':'page'}}">
 			<view class='food-container'>
 				<view class='question' wx:for='{{foods}}'>
+					<image class='question-bg' src='./food-image/bg.png'></image>
 					<view class='answer'>
 						<image src=''></image>
 					</view>
 					<view class='choice-list'>
 						<view class='choice' wx:for='{{item.choice}}'>
-							<image src='{{item.src}}'></image>
+						<image class='bg' src='./food-image/choice-bg.png'></image>
+							<image class='choice-image' src='{{item.src}}'></image>
 							<text>{{item.text}}</text>
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
-    <view class="{{activePage == 2 ? 'page active':'page'}}">分布</view>
-    <view class="{{activePage == 3 ? 'page active':'page'}}">眼镜</view>
-    <view class="{{activePage == 4 ? 'page active':'page'}}">WTF</view>
+    <view class="{{activePage == 2 ? 'page active':'page'}}"></view>
+    <view class="{{activePage == 3 ? 'page active':'page'}}"></view>
+    <view class="{{activePage == 4 ? 'page active':'page'}}"></view>
   </view>
   <image src='./turntable.png' class='turntable' id='turntable' bindtouchstart='touchstart' bindtouchmove='touchmove' style='transform: rotate({{turntableRotate}}deg);'></image>
 </view>

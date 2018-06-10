@@ -4,7 +4,7 @@
     <block wx:if='{{returns.length == 0}}' class='no-return'>
       <view class='maybe'>你可能感兴趣:</view>
       <view class='maybe-container'>
-        <view class='maybe-item' wx:for='{{recommends}}'>{{item}}</view>
+        <view class='maybe-item' wx:for='{{recommends}}' bindtap='maybeTap' data-nkey="{{item.nkey}}">{{item.name}}</view>
       </view>
     </block>
   </view>

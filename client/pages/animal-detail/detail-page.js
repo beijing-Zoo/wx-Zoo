@@ -21,8 +21,22 @@ Page({
 			{
 				answer: 0,
 				choice: [
-					{ src: '', text: '鸟' },
-					{ src: '', text: '树枝' }
+					{ src: './food-image/bird.png', text: '鸟' },
+					{ src: './food-image/branch.png', text: '树枝' }
+				]
+			},
+			{
+				answer: 0,
+				choice: [
+					{ src: './food-image/grass.png', text: '小草' },
+					{ src: './food-image/flower.png', text: '花' }
+				]
+			},
+			{
+				answer: 0,
+				choice: [
+					{ src: './food-image/melon.png', text: '瓜' },
+					{ src: './food-image/corn.png', text: '玉米' }
 				]
 			}
 		]
@@ -51,7 +65,6 @@ Page({
 			afterRotate: changeRotate
 		})
 		if (changeRotate > 12 && this.data.rotateTimes < 1) {
-			console.log(this.data.activePage + 1);
 			this.setData({
 				turntableRotate: this.data.turntableRotate -= 72,
 				rotateTimes: this.data.rotateTimes + 1,
@@ -104,7 +117,6 @@ Page({
 	},
 
 	popTap: function (event) {
-		console.log(event.target.dataset.item.text);
 		this.setData({ popDisplay: false, popText: event.target.dataset.item.text })
 	},
 

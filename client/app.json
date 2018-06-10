@@ -24,14 +24,20 @@
     "list": [
       {
         "pagePath": "pages/recommend/recommend",
+				"iconPath": "./resource/tabbar-recommend.png",
+				"selectedIconPath": "./resource/tabbar-recommend.png",
         "text": "推荐"
       },
       {
         "pagePath": "pages/explore/explore",
+				"iconPath": "./resource/tabbar-explore.png",
+				"selectedIconPath": "./resource/tabbar-explore.png",
         "text": "探索"
       },
       {
         "pagePath": "pages/user/user",
+				"iconPath": "./resource/tabbar-user.png",
+				"selectedIconPath": "./resource/tabbar-user.png",
         "text": "我的"
       }
     ]

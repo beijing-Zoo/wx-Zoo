@@ -165,15 +165,82 @@ page {
   margin: 72rpx 72rpx 0;
 }
 
-.question  {
-	width: 604rpx;
-	height: 224rpx;
-	margin-bottom: 36rpx;
-	border-radius: 10rpx;
-	background: url('./food-image/bg.png') 604rpx 224rpx;
+.question {
+	position: relative;
+  width: 604rpx;
+  height: 224rpx;
+  margin-bottom: 36rpx;
+  border-radius: 10rpx;
 }
 
-.answer  {
+.question-bg {
+	position: absolute;
+	top: -10rpx;
+	left: -20rpx;
+	width: 644rpx;
+  height: 264rpx;
+	z-index: -10;
+}
+
+.answer {
+  /* display: inline-block; */
+	position: relative;
+  float: left;
+  width: 170rpx;
+  height: 224rpx;
+}
+
+.answer image {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  max-width: 72rpx;
+  max-height: 72rpx;
+	margin: auto;
+}
+
+.choice-list {
+  /* display: inline-block; */
+  float: left;
+  width: 434rpx;
+  height: 224rpx;
+  padding: 33rpx 73rpx 0 73rpx;
+  box-sizing: border-box;
+}
+
+.choice {
+  display: inline-block;
+  float: left;
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.choice:nth-child(1) {
+  margin-right: 32rpx;
+}
+
+.choice .bg {
+  width: 128rpx;
+  height: 128rpx;
+  position: absolute;
+  z-index: -1;
+}
+
+.choice .choice-image {
+  max-width: 72rpx;
+  max-height: 72rpx;
+  margin: 28rpx;
+  z-index: 10;
+}
+
+.choice text {
 	display: inline-block;
-	background: #fff6d1;
+  width: 128rpx;
+  height: 30rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 18rpx;
 }

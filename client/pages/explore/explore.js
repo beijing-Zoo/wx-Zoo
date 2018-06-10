@@ -32,7 +32,6 @@ Page({
 	 * map control  tap event
 	 */
 	controlTap: function (res) {
-		console.log(res.controlId);
 		if (res.controlId === 1) {
 			wx.navigateTo({
 				url: '/pages/search/search',
@@ -103,117 +102,146 @@ Page({
 				var user = "markers[" + 0 + "]";
 				this.setData({
 					type: "map",
-					latitude: 39.941857,
-					longitude: 116.331933,
+					latitude: 39.943979,
+					longitude: 116.338928,
 					// latitude: res.latitude,
 					// longitude: res.longitude,
 					[user]: {
 						iconPath: "./explore-map-icon/profile-icon.png",
 						id: 0,
-						latitude: 39.941857,
-						longitude: 116.331933,
+						latitude: 39.943979,
+						longitude: 116.338928,
 						// latitude: res.latitude,
 						// longitude: res.longitude,
 						width: 60,
 						height: 60
 					}
 				}, () => {
-					var BMap = new bmap.BMapWX({
-						ak: '3FmUqGOgoGa6I35w5okHRcL7ib8G7Kru'
-					});
-					BMap.regeocoding({
-						location: this.data.latitude + ',' + this.data.longitude,
-						success: (res) => {
-							let province = res.originalData.result.addressComponent.province;
-							let animalData = [
+					// var BMap = new bmap.BMapWX({
+					// 	ak: '3FmUqGOgoGa6I35w5okHRcL7ib8G7Kru'
+					// });
+
+					let animalData = [
+						{
+							zoo: '北京动物园',
+							animals: [
 								{
-									zoo: '北京动物园',
-									animals: [
-										{
-											name: '大象',
-											latitude: 39.943872,
-											longitude: 116.338933,
-											iconPath: './explore-map-icon/elephant-icon.png',
-											key: 1
-										},
-										{
-											name: '长颈鹿',
-											latitude: 39.942384,
-											longitude: 116.334100,
-											iconPath: './explore-map-icon/giraffe-icon.png',
-											key: 6
-										},
-										{
-											name: '猿猴',
-											latitude: 39.941808,
-											longitude: 116.332104,
-											iconPath: './explore-map-icon/fox-icon.png',
-											key: 3
-										}
-									]
+									name: '大象',
+									latitude: 39.943872,
+									longitude: 116.338933,
+									iconPath: './explore-map-icon/elephant-icon.png',
+									key: 1
+								},
+								{
+									name: '长颈鹿',
+									latitude: 39.942384,
+									longitude: 116.334100,
+									iconPath: './explore-map-icon/giraffe-icon.png',
+									key: 6
+								},
+								{
+									name: '猿猴',
+									latitude: 39.941808,
+									longitude: 116.332104,
+									iconPath: './explore-map-icon/fox-icon.png',
+									key: 3
 								}
 							]
+						}
+					]
 
-							let markers = this.data.markers;
-							animalData.forEach((zoo) => {
-								zoo.animals.forEach((animal, key) => {
-									if (Math.abs(this.data.latitude - animal.latitude) < 0.0003 &&
-										Math.abs(this.data.longitude - animal.longitude) < 0.0003) {
-										this.setData({
-											goIcon: animal.iconPath,
-											goName: animal.name,
-											goKey: animal.key,
-											mapType: 2,
-											mapScale: 18
-										})
-									}
-									else {
-										this.setData({
-											goIcon: null,
-											goName: null,
-											goKey: null,
-											mapType: 1
-										})
-									}
+					let markers = this.data.markers;
 
-									/**
-									 * 获取手机硬件格式，定位控件位置
-									 */
-									wx.getSystemInfo({
-										success: (res) => {
-											this.setData({
-												controls: [
-													{
-														id: 1,
-														iconPath: './explore-map-icon/search-icon.png',
-														position: {
-															left: res.windowWidth - 48 - 10,
-															top: 15,
-															width: 48,
-															height: 48
-														},
-														clickable: true
-													}
-												],
-											})
-										}
-									});
 
-									markers = markers.concat({
-										iconPath: animal.iconPath,
-										id: animal.key,
-										latitude: animal.latitude,
-										longitude: animal.longitude,
-										width: 60,
-										height: 60,
-									})
-								})
-							})
-
+					wx.getSystemInfo({
+						success: (res) => {
 							this.setData({
-								markers: markers
+								controls: [
+									{
+										id: 1,
+										iconPath: './explore-map-icon/search-icon.png',
+										position: {
+											left: res.windowWidth - 48 - 10,
+											top: 15,
+											width: 48,
+											height: 48
+										},
+										clickable: true
+									}
+								],
 							})
 						}
+					});
+
+					let near = null;
+
+					for (let i = 0; i < animalData.length; i++) {
+						let zoo = animalData[i];
+						for (let k = 0; k < zoo.animals.length; k++) {
+							let animal = zoo.animals[k];
+							markers = markers.concat({
+								iconPath: animal.iconPath,
+								id: animal.key,
+								latitude: animal.latitude,
+								longitude: animal.longitude,
+								width: 60,
+								height: 60,
+							})
+
+							if (Math.abs(this.data.latitude - animal.latitude) < 0.0003 &&
+								Math.abs(this.data.longitude - animal.longitude) < 0.0003) {
+								near = {
+									goIcon: animal.iconPath,
+									goName: animal.name,
+									goKey: animal.key,
+									mapType: 2,
+									mapScale: 18
+								}
+								}
+						}
+					}
+
+					if(near) {
+						this.setData({
+							goIcon: near.goIcon,
+							goName: near.goName,
+							goKey: near.goKey,
+							mapType: 2,
+							mapScale: 18
+						})
+					}
+					else {
+						this.setData({
+							goIcon: null,
+							goName: null,
+							goKey: null,
+							mapType: 1
+						})
+					}
+
+					// for (let i = 0; i < animalData.length; i++) {
+					// 	let zoo = animalData[i];
+
+					// 	for (let k = 0; k < zoo.animals.length; k++) {
+					// 		let animal = zoo.animals[k];
+
+					// 		if (Math.abs(this.data.latitude - animal.latitude) < 0.0003 &&
+					// 			Math.abs(this.data.longitude - animal.longitude) < 0.0003) {
+		
+					// 			return;
+					// 		}
+					// 		else {
+								
+					// 		}
+
+					// 		/**
+					// 		 * 获取手机硬件格式，定位控件位置
+					// 		 */
+					// 	}
+					// }
+
+					this.setData({
+						markers: markers
 					})
 				});
 			},

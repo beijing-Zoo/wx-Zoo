@@ -1,5 +1,5 @@
 .user-info {
-	position: relative;
+  position: relative;
   width: 100%;
   height: 356rpx;
   background: #fff;
@@ -7,9 +7,9 @@
 }
 
 .custom-settings {
-	position: absolute;
-	top: 0;
-	right: 60rpx;
+  position: absolute;
+  top: 0;
+  right: 60rpx;
 }
 
 .user-image-content {
@@ -17,14 +17,14 @@
   width: 200rpx;
   height: 200rpx;
   margin: 0 auto;
-  background: green;
-  border-radius: 50%;
-  border: 1px solid rgb(255, 177, 26)；;
 }
 
 .user-image {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  background: green;
+  border: 1px solid rgb(255, 177, 26);
 }
 
 .user-level {
@@ -41,23 +41,25 @@
 }
 
 .user-name {
-	display: block;
-	margin: 40rpx auto 0;
-	color: #9b99a9;
-	text-align: center;
+  display: block;
+  margin: 40rpx auto 0;
+  color: #9b99a9;
+  text-align: center;
 }
 
-.my-content {
-
+.content-container {
+	width: 100%;
+	padding: 20rpx 20rpx 0;
+	box-sizing: border-box;
 }
 
 .content-filter {
-	display: inline-block;
-	width: 50%;
-	height: 92rpx;
-	background: #fff;
-	text-align: center;
-	line-height: 92rpx;
-	color: #9b99a9;
-	border-bottom: 1px solid rgb(221,221,221)
+  display: inline-block;
+  width: 50%;
+  height: 92rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 92rpx;
+  color: #9b99a9;
+  border-bottom: 1px solid rgb(221, 221, 221);
 }

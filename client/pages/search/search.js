@@ -6,12 +6,21 @@ Page({
    */
 	data: {
 		returns: [],
-		recommends: ['非洲象', '黑猩猩', '白犀牛', '美洲鳄', '鹈鹕']
+		recommends: [{ nkey: 1, name: '非洲象' }, { nkey: null, name: '黑猩猩' }, { nkey:null, name:'白犀牛'},
+			{ nkey: null, name: '美洲鳄' }, { nkey: null, name:'鹈鹕'}]
 	},
 
   /**
    * 生命周期函数--监听页面加载
    */
+
+maybeTap: function(event) {
+	console.log(event.target.dataset.nkey);
+	event.target.dataset.nkey && wx.navigateTo({
+		url: '/pages/animal-detail/detail-page?key=' + event.target.dataset.nkey,
+	})
+},
+
 	onLoad: function (options) {
 
 	},
