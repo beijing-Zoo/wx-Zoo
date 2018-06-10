@@ -3,12 +3,11 @@
   <view>
     <text class='daily-title'>每日推荐</text>
     <view class='daily-card' bindtap='toDetail'>
-			<!-- <image class='daily-card-image' src='./head-peiqi400.jpg'></image> -->
-			<view class='daily-card-image' ></view>
+			 <image class='daily-card-image' src='./detail-elephant.png'></image> 
 			<view class='daily-describe'>
-				<image class='card-name'></image>
-				<text class='rare-degree'>珍稀程度： </text>
-				<text>目前数量： 20000头</text>
+				<view class='card-name'>非洲象</view>
+				<text class='rare-degree'>保护级别：易危 </text>
+				<text>目前数量：400000头</text>
 			</view>
 		</view>
   </view>

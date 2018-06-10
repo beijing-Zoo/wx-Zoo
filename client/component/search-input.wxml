@@ -1,4 +1,4 @@
 <!--component/search-input.wxml-->
 <view>
-    <input class='search'  type="text" bindconfirm='searchInput' value="{{inputTxt}}" confirm-type='search'></input>
+    <input class='search'  type="text" bindconfirm='searchInput' value="{{inputTxt}}"   placeholder='搜索你想找的动物'   confirm-type='search'></input>
   </view>

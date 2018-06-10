@@ -41,6 +41,8 @@ page {
 
 .card-name {
   height: 80rpx;
+	font-size: 40rpx;
+	line-height: 80rpx;
   max-width: 100%;
 }
 

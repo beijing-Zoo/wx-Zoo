@@ -7,8 +7,7 @@
     "pages/settings/settings",
     "pages/animal-detail/detail-page",
     "pages/search/search",
-    "pages/animals-list/animals-list",
-    "template/search"
+    "pages/animals-list/animals-list"
   ],
   "window": {
     "backgroundColor": "#ddd",
@@ -25,19 +24,19 @@
       {
         "pagePath": "pages/recommend/recommend",
 				"iconPath": "./resource/tabbar-recommend.png",
-				"selectedIconPath": "./resource/tabbar-recommend.png",
+				"selectedIconPath": "./resource/tabbar-recommend-active.png",
         "text": "推荐"
       },
       {
         "pagePath": "pages/explore/explore",
 				"iconPath": "./resource/tabbar-explore.png",
-				"selectedIconPath": "./resource/tabbar-explore.png",
+				"selectedIconPath": "./resource/tabbar-explore-active.png",
         "text": "探索"
       },
       {
         "pagePath": "pages/user/user",
 				"iconPath": "./resource/tabbar-user.png",
-				"selectedIconPath": "./resource/tabbar-user.png",
+				"selectedIconPath": "./resource/tabbar-user-active.png",
         "text": "我的"
       }
     ]
